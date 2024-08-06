@@ -62,12 +62,14 @@ exports.getAlldocters=async(req,res)=>{
 exports.savedocterposition=async(req,res)=>{
     try {
         const {position}=req.body;
-        const newUser={
-            ...JSON.parse(JSON.stringify(req.user)),
-            userdetails:{position}
-        };
-        const updateUser=await User.findByIdAndUpdate(req.user._id,newUser,{new:true});
-        return respo(res,200,updateUser);  
+        // const newUser={
+        //     ...JSON.parse(JSON.stringify(req.user)),
+        //     userdetails:{position}
+        //};
+        const updateuser=await User.findByIdAndUpdate(req.user._id,{userdetailes:{position}},{new:true});
+        console.log(updateuser);
+        
+        return respo(res,200,updateuser);  
     } catch (error) {
         const message=error?.message;
     return respo(res,500,message)};

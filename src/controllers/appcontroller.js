@@ -15,10 +15,12 @@ exports.appointmentbooking=async(req,res)=>{
         if(isappointmentSlotAvailable.length>0){
             return respo(res,403,'docter is not available at this time')};
             const newAppointment=await appointment.create({dateadded,timeadded,docterid,bookedby});
+            console.log(newAppointment);
             return respo(res,200,newAppointment);
+
     } catch (error) {
         const message=error?.message;
-        return respo(res,400,message);};
+        return respo(res,500,message);};
 };
 
 exports.getallappointments=async(req,res)=>{
