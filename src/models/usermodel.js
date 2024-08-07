@@ -11,7 +11,8 @@ const Userschema=new mongoose.Schema({
         type:Date,
         default:Date.now
     },
-    userdetailes:Object
+    userdetailes:Object,
+
 });
 
 module.exports=mongoose.model("User",Userschema);
